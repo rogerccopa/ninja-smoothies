@@ -1,6 +1,7 @@
 <template>
   <div class="index container">
     <div class="card" v-for="smoothie in smoothies" :key="smoothie.id">
+      <i class="material-icons delete" @click="deleteItem(smoothie.id)">delete</i>
       <div class="card-content">
         <h2 class="indigo-text">{{smoothie.title}}</h2>
         <ul class="ingredients">
@@ -19,9 +20,16 @@ export default {
   data(){
     return {
       smoothies: [
-        {title:'Ninja Brew', slug:'ninja-brew', ingredients:['banana','coffee','milk']},
-        {title:'Morning Mood', slug:'morning-mood', ingredients:['mango','lime','juice']},
+        {title:'Ninja Brew', slug:'ninja-brew', ingredients:['banana','coffee','milk'], id:1},
+        {title:'Morning Mood', slug:'morning-mood', ingredients:['mango','lime','juice'], id:2}
       ]
+    }
+  },
+  methods: {
+    deleteItem(id){
+      this.smoothies = this.smoothies.filter(smoothie => {
+        return smoothie.id != id;
+      });
     }
   }
 }
@@ -45,5 +53,13 @@ export default {
 }
 .index .ingredients li {
   display: inline-block;
+}
+.index .delete {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  cursor: pointer;
+  color: #999;
+  font-size: 1.4em;
 }
 </style>
