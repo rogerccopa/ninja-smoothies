@@ -19,10 +19,7 @@ export default {
   name: 'Index',
   data(){
     return {
-      smoothies: [
-        {title:'Ninja Brew', slug:'ninja-brew', ingredients:['banana','coffee','milk'], id:1},
-        {title:'Morning Mood', slug:'morning-mood', ingredients:['mango','lime','juice'], id:2}
-      ]
+      smoothies: []
     }
   },
   methods: {
