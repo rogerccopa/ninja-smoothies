@@ -15,6 +15,8 @@
 </template>
 
 <script>
+import db from '@/firebase/init'
+
 export default {
   name: 'Index',
   data(){
@@ -28,6 +30,18 @@ export default {
         return smoothie.id != id;
       });
     }
+  },
+  created() {
+    // fetch data from firestore
+    db.collection('smoothies').get()
+    .then(snapshot => {
+      snapshot.forEach(doc => {
+        // console.log(doc.data(), doc.id);
+        let smoothie = doc.data();
+        smoothie.id = doc.id;
+        this.smoothies.push(smoothie);
+      });
+      })
   }
 }
 </script>
