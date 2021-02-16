@@ -26,9 +26,16 @@ export default {
   },
   methods: {
     deleteItem(id){
-      this.smoothies = this.smoothies.filter(smoothie => {
-        return smoothie.id != id;
-      });
+      db.collection('smoothies').doc(id).delete()
+      .then(() => {
+        console.log("Document successfully deleted.");
+        this.smoothies = this.smoothies.filter(smoothie => {
+          return smoothie.id != id;
+        });
+      })
+      .catch(error => {
+        console.log("Error deleting document: ", error);
+      })
     }
   },
   created() {
