@@ -1,4 +1,5 @@
 import firebase from 'firebase/app'
+// eslint-disable-next-line no-unused-vars (this is a ESLint directive)
 import firestore from 'firebase/firestore'
 
 // Initialize our Firebase App: udemy-ninja-smoothies-webapp
