@@ -10,6 +10,11 @@
           </li>
         </ul>
       </div>
+      <span class="btn-floating btn-large halfway-fab pink">
+        <router-link :to="{name:'EditSmoothie', params:{smoothie_slug:smoothie.slug}}">
+          <i class="material-icons">edit</i>    
+        </router-link>
+      </span>
     </div>
   </div>
 </template>
@@ -79,5 +84,11 @@ export default {
   cursor: pointer;
   color: #999;
   font-size: 1.4em;
+}
+.index .edit{
+  position: absolute;
+  right: 4px;
+  bottom: 4px;
+  cursor: pointer;
 }
 </style>
